@@ -1,10 +1,7 @@
 var myApp = angular.module('myApp',[]);
 
-myApp.controller('myAppController',myAppController);
-
-myAppController.$inject = [$http,$scope];
-
 myApp.controller('myAppController', function($scope,$http){
+    
     $scope.getItem = function () {
         $http.get("/items").then(function (res){
             console.log(res);
