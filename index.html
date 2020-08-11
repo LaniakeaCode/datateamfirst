@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.0/angular.min.js"></script>
+    <script src="controller.js"></script>
+     <title>GOAT Movies</title>
+</head>
+<body>
+  <header >
+    <div id="menu-bar">
+      <h1>GOAT</h1>
+      
+  </div>
+  </header> 
+  <main ng-view>
+    <div class ="content">
+      <div ng-controller="myAppController">
+        <button ng-click="movie = 'filmadi'">Movie by Name</button>
+        <button ng-click="movie = 'IMDb'">Movie by IMDb</button>
+        <input type="text" ng-model="search" placeholder="search" />
+        <u1>
+          <div ng-repeat ="item in items | movieBy:movie | filter:search" >
+            <h3>{{item.filmadi}} -{{item.filmyili}}  -{{item.IMDb | currency}}</h3>
+            <div class="remove" ng-click="removeItem(item)"> X </div>
+            <div class="update" ng-click="updateItem(item)"> + </div>
+          
+          </div>
+        </u1>
+        <form ng-submit="addItem()">
+          <input type="text" placeholder="name" ng-model="item.filmadi"/>
+          <input type="text" placeholder="year" ng-model="item.filmyili"/>
+          <input type="text" placeholder="Imdb" ng-model="item.IMDb"/>
+          <input type="submit" value="add movie"/>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
+
