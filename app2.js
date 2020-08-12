@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+
 var bodyParser = require("body-parser");
 
 app.use(express.static(__dirname +'/'));
@@ -27,17 +28,17 @@ app.get('/items', function(req,res){
 app.post('/items',function(req, res){
     items.push({
         id: ++newId,
-        filmadi: req.body.filmadi,filmyili: req.body.filmyili,IMDb:req.body.filmadi,
+        filmadi: req.body.filmadi,filmyili: req.body.filmyili,IMDb:req.body.IMDb,
 
     })
     res.send("added")
 })
 
 app.put('/items/:id', function(req,res){
-    var id = reqparams.id;
+    var id = req.params.id;
     console.log(id);
     var index = items.findIndex((item) =>item.id == parseInt(id));
-
+    
     var editedItem = {
         id: id,
         filmadi: req.body.filmadi,

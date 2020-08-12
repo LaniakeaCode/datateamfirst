@@ -22,8 +22,8 @@
         <button ng-click="movie = 'IMDb'">Movie by IMDb</button>
         <input type="text" ng-model="search" placeholder="search" />
         <u1>
-          <div ng-repeat ="item in items | movieBy:movie | filter:search" >
-            <h3>{{item.filmadi}} -{{item.filmyili}}  -{{item.IMDb | currency}}</h3>
+          <div ng-repeat ="item in items | orderBy:movie | filter:search" >
+            <h3>{{item.filmadi}} -{{item.filmyili}}  -{{item.IMDb}}</h3>
             <div class="remove" ng-click="removeItem(item)"> X </div>
             <div class="update" ng-click="updateItem(item)"> + </div>
           
